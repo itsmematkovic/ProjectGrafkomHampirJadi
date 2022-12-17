@@ -351,7 +351,7 @@ void Demo::BuildTexturedCube()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	int width7, height7;
-	unsigned char* image7 = SOIL_load_image("wall.jpg", &width7, &height7, 0, SOIL_LOAD_RGBA);
+	unsigned char* image7 = SOIL_load_image("GarageDoor.jpg", &width7, &height7, 0, SOIL_LOAD_RGBA);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width7, height7, 0, GL_RGBA, GL_UNSIGNED_BYTE, image7);
 	SOIL_free_image_data(image7);
 	glBindTexture(GL_TEXTURE_2D, 0);
@@ -626,21 +626,21 @@ void Demo::DrawTexturedCube6(GLuint shader)
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 	glm::mat4 hull;
-	hull = glm::translate(hull, glm::vec3(-6, 2, 0));
+	hull = glm::translate(hull, glm::vec3(-11, 2, 0));
 	hull = glm::scale(hull, glm::vec3(6, 0.6, 5));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(hull));
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 	glm::mat4 midFront;
-	midFront = glm::translate(midFront, glm::vec3(-3.35, 1.43, 0));
+	midFront = glm::translate(midFront, glm::vec3(-8.35, 1.43, 0));
 	midFront = glm::scale(midFront, glm::vec3(11.3, 0.548, 2.4));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(midFront));
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 	glm::mat4 lower;
-	lower = glm::translate(lower, glm::vec3(-4.19, 0.71, 0));
+	lower = glm::translate(lower, glm::vec3(-9.19, 0.71, 0));
 	lower = glm::scale(lower, glm::vec3(9.6, 0.9, 2.4));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(lower));
@@ -648,7 +648,7 @@ void Demo::DrawTexturedCube6(GLuint shader)
 
 	//turret
 	glm::mat4 turRing;
-	turRing = glm::translate(turRing, glm::vec3(-4.5, 2.3, 0));
+	turRing = glm::translate(turRing, glm::vec3(-9.5, 2.3, 0));
 	turRing = glm::scale(turRing, glm::vec3(3, 0.548, 3));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(turRing));
@@ -657,7 +657,7 @@ void Demo::DrawTexturedCube6(GLuint shader)
 	//bagian tengah
 
 	glm::mat4 gambrech;
-	gambrech = glm::translate(gambrech, glm::vec3(-3.7, 3, 0));
+	gambrech = glm::translate(gambrech, glm::vec3(-8.7, 3, 0));
 	gambrech = glm::scale(gambrech, glm::vec3(4, 1, 1));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(gambrech));
@@ -665,7 +665,7 @@ void Demo::DrawTexturedCube6(GLuint shader)
 
 	//barrel
 	glm::mat4 barel;
-	barel = glm::translate(barel, glm::vec3(1, 3, 0));
+	barel = glm::translate(barel, glm::vec3(-4, 3, 0));
 	barel = glm::scale(barel, glm::vec3(6, 0.3, 0.3));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(barel));
@@ -673,7 +673,7 @@ void Demo::DrawTexturedCube6(GLuint shader)
 
 	//kiri turret
 	glm::mat4 lodr;
-	lodr = glm::translate(lodr, glm::vec3(-4.2, 3, -1));
+	lodr = glm::translate(lodr, glm::vec3(-9.2, 3, -1));
 	lodr = glm::scale(lodr, glm::vec3(2.7, 1, 2));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(lodr));
@@ -681,7 +681,7 @@ void Demo::DrawTexturedCube6(GLuint shader)
 
 	//kanan turret
 	glm::mat4 gunr;
-	gunr = glm::translate(gunr, glm::vec3(-4.2, 2.85, 1));
+	gunr = glm::translate(gunr, glm::vec3(-9.2, 2.85, 1));
 	gunr = glm::scale(gunr, glm::vec3(2.71, 0.7, 2));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(gunr));
@@ -689,7 +689,7 @@ void Demo::DrawTexturedCube6(GLuint shader)
 
 	//bagian belakang
 	glm::mat4 comp;
-	comp = glm::translate(comp, glm::vec3(-5.8, 3, 0));
+	comp = glm::translate(comp, glm::vec3(-11.8, 3, 0));
 	comp = glm::scale(comp, glm::vec3(3, 1, 4));
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(comp));
@@ -708,7 +708,7 @@ void Demo::DrawTexturedCube7(GLuint shader)
 	GLint modelLoc = glGetUniformLocation(shader, "model");
 
 	//wheel
-	float wheelx = 0;
+	float wheelx = -5;
 	for (int i = 0; i < 6; i++) {
 		float wheelz = 1.3;
 		for (int j = 0; j < 2; j++) {
@@ -729,7 +729,7 @@ void Demo::DrawTexturedCube7(GLuint shader)
 		glm::mat4 wheel;
 
 		wheel = glm::scale(wheel, glm::vec3(1, 1, 1.2));
-		wheel = glm::translate(wheel, glm::vec3(1.3, 1, drivez));
+		wheel = glm::translate(wheel, glm::vec3(-4.3, 1, drivez));
 		drivez = -1.5;
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(wheel));
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
@@ -741,7 +741,7 @@ void Demo::DrawTexturedCube7(GLuint shader)
 		glm::mat4 wheel;
 
 		wheel = glm::scale(wheel, glm::vec3(1, 1, 1.2));
-		wheel = glm::translate(wheel, glm::vec3(-8.5, 1.1, drivez));
+		wheel = glm::translate(wheel, glm::vec3(-13.5, 1.1, drivez));
 		drivez = 1.5;
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(wheel));
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
@@ -808,9 +808,9 @@ void Demo::BuildColoredPrism() {
 
 	unsigned int indices[] = {
 		0,  1,  2,   // front
-		4,  5,  6,  4,  6,  7,   // right
+		4,  5,  6,  6,  4,  7,   // right
 		8,  9,  10,  // back
-		12, 4, 13, 10, 4, 12,  // left
+		12, 4, 13, 12, 10, 4,  // left
 		//16, 18, 17, 16, 19, 18,  // upper
 		20, 22, 21, 20, 23, 22   // bottom
 	};
@@ -858,20 +858,20 @@ void Demo::DrawColoredPrism(GLuint shader)
 
 	glm::mat4 frontUpper;
 	//prism = glm::rotate(prism, hulldep, glm::vec3(0, 0, 1));
-	frontUpper = glm::translate(frontUpper, glm::vec3(-0.35, 2, 0));
+	frontUpper = glm::translate(frontUpper, glm::vec3(-5.35, 2, 0));
 	frontUpper = glm::scale(frontUpper, glm::vec3(-5.3, 0.6, 5));
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(frontUpper));
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 	glm::mat4 frontLower;
 	//prism = glm::rotate(prism, hulldep, glm::vec3(0, 0, 1));
-	frontLower = glm::translate(frontLower, glm::vec3(1.45, 0.71, 0));
+	frontLower = glm::translate(frontLower, glm::vec3(-3.45, 0.71, 0));
 	frontLower = glm::scale(frontLower, glm::vec3(-1.7, -0.9, 2.4));
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(frontLower));
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 	glm::mat4 gunr;
-	gunr = glm::translate(gunr, glm::vec3(-2.495, 2.85, 1));
+	gunr = glm::translate(gunr, glm::vec3(-7.495, 2.85, 1));
 	gunr = glm::rotate(gunr, tur, glm::vec3(1, 0, 0));
 	gunr = glm::rotate(gunr, tur, glm::vec3(0, 0, -1));
 	gunr = glm::scale(gunr, glm::vec3(2, 0.7, 0.7));
@@ -879,7 +879,7 @@ void Demo::DrawColoredPrism(GLuint shader)
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 	glm::mat4 lodr;
-	lodr = glm::translate(lodr, glm::vec3(-2.495, 3, -0.95));
+	lodr = glm::translate(lodr, glm::vec3(-7.495, 3, -0.95));
 	lodr = glm::rotate(lodr, tur, glm::vec3(1, 0, 0));
 	lodr = glm::rotate(lodr, tur, glm::vec3(0, 0, -1));
 	lodr = glm::scale(lodr, glm::vec3(-2.1, 0.7, 0.99));
